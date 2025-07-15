@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Film Césarisés</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Vue 3 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+  <!-- Vue3 Easy DataTable -->
+  <link rel="stylesheet" href="https://unpkg.com/vue3-easy-data-table/dist/style.css">
+  <script src="https://unpkg.com/vue3-easy-data-table"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #app {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h2 class="mb-4">Film Césarisés</h2>
+    <easy-data-table
+      :headers="headers"
+      :items="items"
+      :sortable="true"
+      :pagination="true"
+      :rows-per-page="5"
+    ></easy-data-table>
+  </div>
+
+  <script>
+    const { createApp, ref, onMounted } = Vue;
+
+    createApp({
+      components: {
+        EasyDataTable: window['vue3-easy-data-table'],
+      },
+      setup() {
+        const items = ref([]);
+        const headers = ref([]);
+
+        const fetchData = async () => {
+          try {
+            const res = await fetch('input_formatted.json');
+            data = await res.json();
+            data = data['movies']
+            items.value = data;
+
+            // Dynamically generate headers
+            if (data.length > 0) {
+              headers.value = Object.keys(data[0]).map(key => ({
+                text: key,
+                value: key,
+                sortable: true
+              }));
+            }
+          } catch (error) {
+            console.error('Error loading input.json:', error);
+          }
+        };
+
+        onMounted(fetchData);
+
+        return {
+          items,
+          headers
+        };
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
