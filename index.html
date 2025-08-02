@@ -48,7 +48,7 @@
 
         const fetchData = async () => {
           try {
-            const res = await fetch('input_formatted.json');
+            const res = await fetch('input-formatted.json');
             data = await res.json();
             data = data['movies']
             items.value = data;
