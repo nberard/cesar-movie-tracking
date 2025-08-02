@@ -50,7 +50,6 @@
           try {
             const res = await fetch('input-formatted.json');
             data = await res.json();
-            data = data['movies']
             items.value = data;
 
             // Dynamically generate headers
