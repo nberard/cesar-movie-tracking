@@ -11,13 +11,18 @@
     <button id="user-data-save">Save my choices</button>
 
     <script>
+        window.clearMindKaiserTrackingData = {};
         $(document).ready(function() {
-            console.debug('load');
-            const res = fetch('input-formatted.json');
-            data = res.json();
-            items.value = data;
-            console.dir(data);
 
+
+            $.getJSON( "input-formatted.json", function(json) {
+              console.log( "success" );
+              data = json.json();
+                console.dir(data);
+            })
+              .fail(function() {
+                console.log( "error" );
+              });
 
             $('#user-data-save').on('click', function() {
                 const userInput = $('#user-data').val();
