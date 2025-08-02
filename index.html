@@ -17,8 +17,7 @@
 
             $.getJSON( "input-formatted.json", function(json) {
               console.log( "success" );
-              data = json.json();
-                console.dir(data);
+                console.dir(json);
             })
               .fail(function() {
                 console.log( "error" );
