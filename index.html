@@ -11,14 +11,14 @@
     <button id="user-data-save">Save my choices</button>
 
     <script>
-        $(document).onload(function() {
+        $(document).ready(function() {
             console.debug('load');
             const res = fetch('input-formatted.json');
             data = res.json();
             items.value = data;
-            console.dir(data)
-        });
-        $(document).ready(function() {
+            console.dir(data);
+
+
             $('#user-data-save').on('click', function() {
                 const userInput = $('#user-data').val();
                 console.dir(userInput);
