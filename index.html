@@ -55,9 +55,13 @@
                 window.clearMindKaiserTrackingData = json;
                 console.log(document.getElementById("movie-data"));
                 table = document.getElementById("movie-data");
-                row = table.insertRow(0);
+                row = table.insertRow(1);
                 cell1 = row.insertCell(0);
-                cell1.innerHTML = json[0].title;
+                cell1.innerHTML = json[0].createdYear;
+                cell2 = row.insertCell(1);
+                cell2.innerHTML = json[0].title;
+                cell3 = row.insertCell(2);
+                cell3.innerHTML = '<img scr="' + json[0].picture_url + '"/>';
                 json.forEach(function (el) {
                    console.log(el);
                 });
