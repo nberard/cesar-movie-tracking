@@ -1,3 +1,4 @@
+import sys
 import urllib
 import json
 
@@ -10,5 +11,18 @@ with open('/app/input-formatted.json', 'r') as f:
         if DATA_IDF_PREFIX in movie['picture_url']:
             print(movie['picture_url'])
             filename =  "/app/cache/" + movie['picture_url'].split("/")[-1] + ".jpg"
+            if sys.version_info[0] == 3:
+                from urllib.request import urlopen
+            else:
+                # Not Python 3 - today, it is most likely to be Python 2
+                # But note that this might need an update when Python 4
+                # might be around one day
+                from urllib import urlopen
+
+            with urlopen(movie['picture_url']) as fh_url:
+                s = fh_url.read()
+                print(s)
+                print(type(s))
+
             url_opener.retrieve(movie['picture_url'], filename)
             print(filename)
