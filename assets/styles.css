@@ -6,12 +6,12 @@ input#user-data {
 
 body {
     font-family: 'Indie Flower', serif;
-    color: cornflowerblue;
+    color: darkblue;
     background-color: mediumpurple;
 }
 
 table {
-    background-color: dimgrey;
+    background-color: darkseagreen;
 }
 
 tr {
