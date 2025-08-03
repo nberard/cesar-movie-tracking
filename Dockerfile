@@ -1,7 +1,5 @@
-FROM ubuntu
-COPY warmup.sh /app/
+FROM python:latest
+COPY warmup.py /app/
 COPY input-formatted.json /app/
-RUN apt-get update
-RUN apt-get install -y jq
-RUN chmod +x /app/warmup.sh
-ENTRYPOINT /bin/bash /app/warmup.sh
+RUN pip install -r requirements.txt
+RUN chmod +x /app/warmup.py
