@@ -6,13 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-<table id="movie-data" name="movie-data">
-    <tr>
-        <th>Année</th>
-        <th>Titre</th>
-        <th>Image</th>
-    </tr>
-</table>
+<div id="movie-data" name="movie-data"></div>
 <input type="text" id="user-data" name="user-data" onclick=""/>
 <br>
 <button id="user-data-save">Save my choices</button>
@@ -22,8 +16,6 @@
     window.clearMindKaiserTrackingData = {};
     $(document).ready(function () {
         $.getJSON("input-formatted.json", function (json) {
-            // console.log("success");
-            // console.dir(json);
             window.clearMindKaiserTrackingData = json;
 
             json.forEach(function (el, cpt) {
