@@ -36,69 +36,71 @@
 <!--title-->
 <!--: -->
 <!--"L’Apollonide, souvenirs de la maison close"-->
-    <table id="movie-data" name="movie-data">
+<table id="movie-data" name="movie-data">
+    <tr>
         <th>Année</th>
         <th>Titre</th>
         <th>Image</th>
-    </table>
-    <input type="text" id="user-data" name="user-data" onclick=""/>
-    <br>
-    <button id="user-data-save">Save my choices</button>
+    </tr>
+</table>
+<input type="text" id="user-data" name="user-data" onclick=""/>
+<br>
+<button id="user-data-save">Save my choices</button>
 
 
-    <script>
-        window.clearMindKaiserTrackingData = {};
-        $(document).ready(function() {
-            $.getJSON( "input-formatted.json", function(json) {
-              console.log( "success" );
-                console.dir(json);
-                window.clearMindKaiserTrackingData = json;
-                console.log(document.getElementById("movie-data"));
-                table = document.getElementById("movie-data");
+<script>
+    window.clearMindKaiserTrackingData = {};
+    $(document).ready(function () {
+        $.getJSON("input-formatted.json", function (json) {
+            console.log("success");
+            console.dir(json);
+            window.clearMindKaiserTrackingData = json;
+            console.log(document.getElementById("movie-data"));
+            table = document.getElementById("movie-data");
 
-                json.forEach(function (el, cpt) {
-                    row = table.insertRow(cpt);
-                    cell1 = row.insertCell(0);
-                    cell1.innerHTML = el.createdYear;
-                    cell2 = row.insertCell(1);
-                    cell2.innerHTML = el.title;
-                    cell3 = row.insertCell(2);
-                    cell3.innerHTML = '<img scr="' + el.picture_url + '"/>';
-                   console.log(cpt);
-                   console.log(el);
-                   console.log(row);
-                   console.log(table);
-                });
-            })
-              .fail(function() {
-                console.log( "error" );
-              });
+            json.forEach(function (el, cpt) {
+                row = table.insertRow(cpt);
+                cell1 = row.insertCell(0);
+                cell1.innerHTML = el.createdYear;
+                cell2 = row.insertCell(1);
+                cell2.innerHTML = el.title;
+                cell3 = row.insertCell(2);
+                cell3.outerHTML = '<img scr="' + el.picture_url + '"/>';
+                console.log(cpt);
+                console.log(el);
+                console.log(row);
+                console.log(table);
+            });
+        })
+            .fail(function () {
+                console.log("error");
+            });
 
-            $('#user-data-save').on('click', function() {
-                const userInput = $('#user-data').val();
-                console.dir(userInput);
-                $.ajax({
-                    url: 'save.php',
-                    type: 'POST',
-                    data: { data: userInput },
-                    success: function(response) {
-                        try {
-                            const json = JSON.parse(response);
-                            if (json.success) {
-                                console.info("Saved successfully: " + json.message);
-                            } else {
-                                console.debug("Error: " + json.message);
-                            }
-                        } catch (e) {
-                            console.error("Invalid JSON response from server.");
+        $('#user-data-save').on('click', function () {
+            const userInput = $('#user-data').val();
+            console.dir(userInput);
+            $.ajax({
+                url: 'save.php',
+                type: 'POST',
+                data: {data: userInput},
+                success: function (response) {
+                    try {
+                        const json = JSON.parse(response);
+                        if (json.success) {
+                            console.info("Saved successfully: " + json.message);
+                        } else {
+                            console.debug("Error: " + json.message);
                         }
-                    },
-                    error: function() {
-                        alert("AJAX request failed.");
+                    } catch (e) {
+                        console.error("Invalid JSON response from server.");
                     }
-                });
+                },
+                error: function () {
+                    alert("AJAX request failed.");
+                }
             });
         });
-    </script>
+    });
+</script>
 
 <

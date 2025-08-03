@@ -5,6 +5,17 @@
 }
 body {
     font-family: 'Indie Flower', serif;
-    color: white;
-    background-color: rebeccapurple;
+    color: cornflowerblue;
+    background-color: mediumpurple;
 }
+
+table {
+    background-color: dimgrey;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+
