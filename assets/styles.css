@@ -13,7 +13,7 @@ body {
 
 .movie-row {
     clear: left;
-    background-image: url("assets/movie-background.jpg");
+    background-image: url("https://kaisertracking.clearmind.studio/assets/movie-background.jpg");
     margin-top: 10px;
     margin-left: 10px;
 }
