@@ -27,9 +27,9 @@
             window.clearMindKaiserTrackingData = json;
 
             json.forEach(function (el, cpt) {
-                div_content = '<div id="row-' + cpt + '">';
-                div_content += '<img alt="failed" src="https://kaisertracking.clearmind.studio/cache/' + el.picture_url.split('/').pop() + '.jpg">';
-                div_content += '<span class="year">' + el.createdYear + '</span>' + el.title;
+                div_content = '<div class="movie-row" id="row-' + cpt + '">';
+                div_content += '<img class="movie-img" alt="failed" src="https://kaisertracking.clearmind.studio/cache/' + el.picture_url.split('/').pop() + '.jpg">';
+                div_content += '<span class="movie-year">' + el.createdYear + '</span>' + el.title;
                 div_content += '</div>';
 
                 document.getElementById('movie-data').outerHTML += div_content;

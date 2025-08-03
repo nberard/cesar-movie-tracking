@@ -11,25 +11,21 @@ body {
     margin: 2px 2px 2px 2px;
 }
 
-table {
+.movie-row {
     background-color: darkseagreen;
-}
-
-tr {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     border: thick double #32a1ce;
     margin-top: 10px;
     margin-left: 10px;
 }
 
-td {
-    border-width: thick;
-    margin-left: 5px;
-}
-
-img {
+.movie-img {
     width: 100px;
     height: 100px;
+}
+
+.movie-year {
+    font-weight: bold;
 }
 
 button#user-data-save {
