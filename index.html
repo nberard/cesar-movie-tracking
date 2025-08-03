@@ -22,10 +22,10 @@
     window.clearMindKaiserTrackingData = {};
     $(document).ready(function () {
         $.getJSON("input-formatted.json", function (json) {
-            console.log("success");
-            console.dir(json);
+            // console.log("success");
+            // console.dir(json);
             window.clearMindKaiserTrackingData = json;
-            console.log(document.getElementById("movie-data"));
+            // console.log(document.getElementById("movie-data"));
             table = document.getElementById("movie-data");
 
             json.forEach(function (el, cpt) {
@@ -35,7 +35,7 @@
                 cell2 = row.insertCell(1);
                 cell2.innerHTML = el.title;
                 cell3 = row.insertCell(2);
-                cell3.outerHTML = '<img loading="lazy" alt="failed" scr="https://kaisertracking.clearmind.studio/cache/' + el.picture_url.split('/').pop() + '.jpg">';
+                cell3.outerHTML = '<img alt="failed" scr="https://kaisertracking.clearmind.studio/cache/' + el.picture_url.split('/').pop() + '.jpg">';
                 console.log(cpt);
                 console.log(el);
                 console.log(row);
