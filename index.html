@@ -35,7 +35,7 @@
                 cell2 = row.insertCell(1);
                 cell2.innerHTML = el.title;
                 cell3 = row.insertCell(2);
-                cell3.outerHTML = '<img loading="lazy" alt="failed" scr="' + el.picture_url + '">';
+                cell3.outerHTML = '<img loading="lazy" alt="failed" scr="cache/' + el.picture_url.split('/')[-1] + '">';
                 console.log(cpt);
                 console.log(el);
                 console.log(row);
