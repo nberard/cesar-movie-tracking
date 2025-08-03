@@ -20,12 +20,15 @@ body {
 }
 
 .movie-img {
-    width: 100px;
-    height: 100px;
+    width: 22%;
+    margin-top: 22px;
+    margin-left: 22px;
+    border-radius: 12px 12px;
 }
 
-.movie-year {
-    font-weight: bold;
+.movie-desc {
+    margin-top: 12px;
+    margin-left: 12px;
 }
 
 button#user-data-save {
