@@ -13,7 +13,7 @@ body {
 
 .movie-row {
     clear: left;
-    background-color: darkseagreen;
+    background-image: url("assets/movie-background.jpg");
     margin-top: 10px;
     margin-left: 10px;
 }
