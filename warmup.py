@@ -19,6 +19,6 @@ with open('/app/input-formatted.json', 'r') as f:
 
             with urlopen(movie['picture_url']) as fh_url:
                 s = fh_url.read()
-                print(s)
-                print(type(s))
+                with open(filename, 'wb') as out_file:
+                    out_file.write(s)
 
